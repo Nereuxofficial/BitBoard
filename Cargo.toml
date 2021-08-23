@@ -1,0 +1,10 @@
+[package]
+name = "Bitboard"
+version = "0.1.0"
+edition = "2018"
+
+# Implementation of a BitBoard inspired by https://github.com/peterellisjones/rust_move_gen,
+# https://github.com/jordanbray/chess and https://rustic-chess.org/
+
+
+[dependencies]
