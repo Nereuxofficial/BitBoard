@@ -34,6 +34,6 @@ impl Mul for BitBoard {
 
     #[inline]
     fn mul(self, other: Self) -> Self::Output {
-        Bitboard(self.0.wrapping_mul(other.0))
+        Self(self.0.wrapping_mul(other.0))
     }
 }

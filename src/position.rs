@@ -1,5 +1,6 @@
 use crate::bitboard::BitBoard;
 
+#[derive(Debug)]
 pub struct Position{
     /// Board for each side
     bb_sides: [BitBoard; 2],
