@@ -4,13 +4,15 @@ use std::ops::{BitAnd, BitOr, Mul};
 pub struct BitBoard(pub u64);
 
 impl BitBoard {
-    pub fn is_empty(&self) -> bool{
+    pub fn is_empty(&self) -> bool {
         self.0 == 0
     }
     pub fn any(self) -> bool {
         self.0 != 0
     }
-    pub fn empty() -> Self{Self(0)}
+    pub fn empty() -> Self {
+        Self(0)
+    }
 }
 
 impl BitAnd for BitBoard {

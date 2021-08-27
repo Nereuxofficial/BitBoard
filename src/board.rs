@@ -2,6 +2,6 @@ use crate::bitboard::BitBoard;
 use crate::position::Position;
 
 #[derive(Debug)]
-pub struct Board{
+pub struct Board {
     pos: Position,
 }
