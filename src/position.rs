@@ -1,4 +1,5 @@
 use crate::bitboard::BitBoard;
+use crate::piece::Piece;
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct Position {
@@ -16,6 +17,10 @@ impl Position {
             bb_sides,
             bb_pieces,
         }
+    }
+    pub fn at(&self) -> Piece {
+        //FIXME
+        Piece(0)
     }
 }
 

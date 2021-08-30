@@ -15,3 +15,17 @@ impl Pieces {
     pub const QUEEN: usize = 4;
     pub const KING: usize = 5;
 }
+
+#[derive(PartialEq, Debug)]
+pub enum Color {
+    Black,
+    White,
+}
+impl From<bool> for Color {
+    fn from(b: bool) -> Self {
+        match b {
+            true => Self::White,
+            false => Self::Black,
+        }
+    }
+}
