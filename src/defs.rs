@@ -24,8 +24,8 @@ pub enum Color {
 impl From<bool> for Color {
     fn from(b: bool) -> Self {
         match b {
-            true => Self::White,
-            false => Self::Black,
+            true => Self::Black,
+            false => Self::White,
         }
     }
 }
