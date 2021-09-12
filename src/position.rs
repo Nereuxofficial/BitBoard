@@ -1,5 +1,6 @@
 use crate::bitboard::BitBoard;
 use crate::piece::Piece;
+use crate::state::State;
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct Position {
@@ -7,15 +8,19 @@ pub struct Position {
     bb_sides: [BitBoard; 2],
     // BitBoards for all pieces and each side
     bb_pieces: [[BitBoard; 6]; 2],
+    // State contains info about who castles, if en passant is present and so on
+    state: State,
 }
 
 impl Position {
     pub fn empty() -> Self {
         let bb_sides = [BitBoard::empty(); 2];
         let bb_pieces = [[BitBoard::empty(); 6]; 2];
+        let state = State::empty();
         Position {
             bb_sides,
             bb_pieces,
+            state,
         }
     }
     pub fn at(&self) -> Piece {
