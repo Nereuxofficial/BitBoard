@@ -1,4 +1,3 @@
-use crate::bitboard::BitBoard;
 use crate::position::Position;
 
 #[derive(Debug)]

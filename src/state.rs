@@ -24,8 +24,11 @@ impl State {
 
 
 /// Castling rights are stored in a u8, which is divided into the following parts:
-/// 0 1 0 1 1 1 0 0
-///
+/// ```text
+/// 0 1 0 1   1                1               0                0
+/// ^^^^^^^   ^                ^               ^                ^
+/// unused    Black queen side Black king side White queen side White king side
+/// ```
 #[derive(Debug, Clone, Hash, Eq, PartialEq)]
 pub struct CastlingRights(u8);
 
