@@ -1,6 +1,8 @@
 use crate::bitboard::BitBoard;
 use crate::piece::Piece;
+use crate::Square;
 use crate::state::State;
+use BitIndex;
 
 /// A Position contains everything necessary to calculate moves and evaluate a position.
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
@@ -24,9 +26,12 @@ impl Position {
             state,
         }
     }
-    pub fn at(&self) -> Piece {
-        //FIXME
-        Piece(0)
+    /// Returns a piece(if present at the given square
+    pub fn at(&self, square: Square) -> Option<Piece> {
+        if !(self.bb_sides[0].bit(square) || self.bb_sides[1].bit(square)){
+            None
+        }
+        todo!()
     }
 }
 

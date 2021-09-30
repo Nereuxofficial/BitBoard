@@ -34,8 +34,11 @@ impl Piece {
             Pieces::ROOK
         } else if self.0.bit(2) {
             Pieces::QUEEN
-        } else {
+        } else if self.0.bit(1) {
             Pieces::KING
+        }
+        else{
+            panic!("No piece found")
         }
     }
     /// Returns true if a piece is invalid(Has multiple/no piece type). Useful for debugging.
