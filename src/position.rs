@@ -39,7 +39,6 @@ impl Position {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::defs::{Pieces, Sides};
 
     #[test]
     fn test_empty_position() {
