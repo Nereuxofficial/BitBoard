@@ -36,27 +36,26 @@ impl Piece {
             Pieces::QUEEN
         } else if self.0.bit(1) {
             Pieces::KING
-        }
-        else{
+        } else {
             panic!("No piece found")
         }
     }
     /// Returns true if a piece is invalid(Has multiple/no piece type). Useful for debugging.
     pub fn is_invalid(&self) -> bool {
-        let mut types:u8 = 0;
-        for bit in 1..=6{
-            if self.0.bit(bit){
+        let mut types: u8 = 0;
+        for bit in 1..=6 {
+            if self.0.bit(bit) {
                 types += 1;
             }
         }
-        !(types==1)
+        types != 1
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::defs::BitPieces;
     use super::*;
+    use crate::defs::BitPieces;
     #[test]
     fn test_get_piece() {
         let mut piece = Piece(BitPieces::PAWN);
@@ -99,7 +98,7 @@ mod tests {
         assert!(!piece.get_has_moved());
     }
     #[test]
-    fn test_is_invalid(){
+    fn test_is_invalid() {
         let mut piece = Piece(0b00000001);
         assert!(piece.is_invalid());
         piece = Piece(BitPieces::HAS_MOVED | BitPieces::ROOK);

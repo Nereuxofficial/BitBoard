@@ -17,10 +17,9 @@ impl Pieces {
     pub const KING: usize = 5;
 }
 
-
 /// Provides Labels for the `Piece` struct
 pub struct BitPieces;
-impl BitPieces{
+impl BitPieces {
     pub const HAS_MOVED: u8 = 0b00000001;
     pub const KING: u8 = 0b00000010;
     pub const QUEEN: u8 = 0b00000100;
@@ -33,18 +32,18 @@ impl BitPieces{
 
 /// Provides labels for the `CastlingRights struct`
 pub struct Castling;
-impl Castling{
-    pub const NO_CASTLING:u8 = 0;
-    pub const WHITE_00:u8 = 0b00000001;
-    pub const WHITE_000:u8 = 0b00000010;
-    pub const BLACK_00:u8 = 0b00000100;
-    pub const BLACK_000:u8 = 0b00001000;
+impl Castling {
+    pub const NO_CASTLING: u8 = 0;
+    pub const WHITE_00: u8 = 0b00000001;
+    pub const WHITE_000: u8 = 0b00000010;
+    pub const BLACK_00: u8 = 0b00000100;
+    pub const BLACK_000: u8 = 0b00001000;
 
-    pub const KING_SIDE:u8 = Self::BLACK_00 | Self::WHITE_00;
-    pub const QUEEN_SIDE:u8 = Self::BLACK_000 | Self::WHITE_000;
-    pub const WHITE_CASTLING:u8 = Self::WHITE_00 | Self::WHITE_000;
-    pub const BLACK_CASTLING:u8 = Self::BLACK_00 | Self::BLACK_000;
-    pub const ANY_CASTLING:u8 = Self::BLACK_CASTLING | Self::WHITE_CASTLING;
+    pub const KING_SIDE: u8 = Self::BLACK_00 | Self::WHITE_00;
+    pub const QUEEN_SIDE: u8 = Self::BLACK_000 | Self::WHITE_000;
+    pub const WHITE_CASTLING: u8 = Self::WHITE_00 | Self::WHITE_000;
+    pub const BLACK_CASTLING: u8 = Self::BLACK_00 | Self::BLACK_000;
+    pub const ANY_CASTLING: u8 = Self::BLACK_CASTLING | Self::WHITE_CASTLING;
 }
 
 #[derive(PartialEq, Debug)]
