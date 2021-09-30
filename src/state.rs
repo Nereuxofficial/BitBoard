@@ -1,44 +1,39 @@
+use crate::defs::{Castling, Sides};
 use crate::Square;
 
+
+/// Contains castling_rights, move_clocks, en_passant_square if possible and the side to move
 #[derive(Debug, Clone, Hash, Eq, PartialEq)]
 pub struct State {
     castling_rights: CastlingRights,
-    move_clocks: MoveClocks,
     en_passant_square: Option<Square>,
+    half_move_counter: u8,
+    stm: usize
 }
 
 impl State {
     pub fn empty() -> Self {
         Self {
-            castling_rights: CastlingRights::empty(),
-            move_clocks: MoveClocks::empty(),
+            castling_rights: CastlingRights::all(),
             en_passant_square: None,
-        }
-    }
-}
-
-#[derive(Debug, Clone, Hash, Eq, PartialEq)]
-pub struct MoveClocks {
-    castling_rights: CastlingRights,
-    move_counter: u16,
-    half_move_counter: u8,
-}
-
-impl MoveClocks {
-    pub fn empty() -> Self {
-        Self {
-            move_counter: 0,
             half_move_counter: 0,
-            castling_rights: CastlingRights::empty(),
+            stm: Sides::WHITE
         }
     }
 }
 
+
+/// Castling rights are stored in a u8, which is divided into the following parts:
+/// 0 1 0 1 1 1 0 0
+///
 #[derive(Debug, Clone, Hash, Eq, PartialEq)]
-struct CastlingRights {}
+pub struct CastlingRights(u8);
 
 impl CastlingRights {
     fn empty() -> Self {
-        Self {}
+        Self(Castling::NO_CASTLING)
+    }
+    fn all() -> Self{
+        Self(Castling::ANY_CASTLING)
     }
 }

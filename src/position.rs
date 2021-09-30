@@ -2,13 +2,14 @@ use crate::bitboard::BitBoard;
 use crate::piece::Piece;
 use crate::state::State;
 
+/// A Position contains everything necessary to calculate moves and evaluate a position.
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct Position {
-    /// Board for each side
+    /// The board for each side
     bb_sides: [BitBoard; 2],
-    // BitBoards for all pieces and each side
+    /// BitBoards for all pieces and each side
     bb_pieces: [[BitBoard; 6]; 2],
-    // State contains info about who castles, if en passant is present and so on
+    /// State contains all relevant information for evaluating a position outside the pieces.
     state: State,
 }
 
