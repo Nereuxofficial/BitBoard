@@ -21,7 +21,7 @@ impl State {
     }
 }
 
-/// Castling rights are stored in a u8, which is divided into the following parts:
+/// Castling rights are stored in a [`u8`], which is divided into the following parts:
 /// ```text
 /// 0 1 0 1   1                1               0                0
 /// ^^^^^^^   ^                ^               ^                ^

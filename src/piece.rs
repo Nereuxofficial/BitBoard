@@ -2,14 +2,14 @@ use crate::defs::{Color, Pieces};
 use bit::BitIndex;
 
 /// A Piece consists of 8 bits
-///
+/// # Assignment of bits
 /// ```text
 /// 0      0      0         0        0      0       0       0
 /// ^      ^      ^         ^        ^      ^       ^       ^
 /// Team   Pawn   Bishop    Knight   Rook   Queen   King    has moved
 /// ```
 /// The first bit is 0 if the team is white
-///
+/// # Edge Cases
 /// If a piece is <1 then it's empty
 #[derive(Clone, Debug, PartialEq)]
 pub struct Piece(pub u8);

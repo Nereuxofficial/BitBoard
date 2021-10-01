@@ -1,12 +1,15 @@
-// Contains definitions needed across the crate.
+//! Contains definitions needed across the crate.
+use crate::piece;
+use crate::state;
 
+/// Labels for the Sides two-dimensional array in [`Position`]
 pub struct Sides;
 impl Sides {
     pub const WHITE: usize = 0;
     pub const BLACK: usize = 1;
 }
 
-/// Provides the index of the single pieces in the array of BitBoards
+/// Provides the index of the single pieces in the array of [`BitBoard`]s
 pub struct Pieces;
 impl Pieces {
     pub const PAWN: usize = 0;
@@ -17,7 +20,7 @@ impl Pieces {
     pub const KING: usize = 5;
 }
 
-/// Provides Labels for the `Piece` struct
+/// Provides Labels for the [`Piece`] struct
 pub struct BitPieces;
 impl BitPieces {
     pub const HAS_MOVED: u8 = 0b00000001;
@@ -30,7 +33,7 @@ impl BitPieces {
     pub const BLACK: u8 = 0b10000000;
 }
 
-/// Provides labels for the `CastlingRights struct`
+/// Provides labels for the [`CastlingRights`]
 pub struct Castling;
 impl Castling {
     pub const NO_CASTLING: u8 = 0;

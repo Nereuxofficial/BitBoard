@@ -13,6 +13,7 @@ mod state;
 /// 64 is H8
 pub struct Square(u8);
 
+/// Labels for every [`Square`] on the board.
 #[repr(u8)]
 #[rustfmt::skip]
 pub enum SquareLabels {
