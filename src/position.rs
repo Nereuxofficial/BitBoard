@@ -27,13 +27,14 @@ impl Position {
             state,
         }
     }
-    /// Returns a piece(if present at the given square
-    pub fn at(&self, square: Square) -> Option<Piece> {
-        if !(self.bb_sides[0].0.bit(square.0 as usize) || self.bb_sides[1].0.bit(square.0 as usize))
-        {
-            return None;
+    /// Returns a piece at a given square
+    fn at(&self, square: Square) -> Piece {
+        let val = square.0;
+        if !(self.bb_sides[0].0.bit(val) || self.bb_sides[1].0.bit(val)) {
+            Piece(0)
+        } else {
+            todo!()
         }
-        todo!()
     }
 }
 

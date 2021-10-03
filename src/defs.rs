@@ -6,6 +6,14 @@ impl Sides {
     pub const WHITE: usize = 0;
     pub const BLACK: usize = 1;
 }
+impl Sides {
+    pub fn opposite(side: usize) -> usize {
+        match side {
+            Self::WHITE => Self::BLACK,
+            _ => Self::WHITE,
+        }
+    }
+}
 
 /// Provides the index of the single pieces in the array of [`BitBoard`]s
 pub struct Pieces;

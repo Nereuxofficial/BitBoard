@@ -11,10 +11,10 @@ mod state;
 /// 1 is A1
 /// 2 is B1
 /// 64 is H8
-pub struct Square(u8);
+pub struct Square(usize);
 
 /// Labels for every [`Square`] on the board.
-#[repr(u8)]
+#[repr(usize)]
 #[rustfmt::skip]
 pub enum SquareLabels {
     None,
@@ -31,9 +31,9 @@ pub enum SquareLabels {
 mod tests {
     use super::*;
     fn test_square_labels() {
-        let mut test_square = Square(SquareLabels::A1 as u8);
+        let mut test_square = Square(SquareLabels::A1 as usize);
         assert_eq!(1, test_square.0);
-        test_square = Square(SquareLabels::H8 as u8);
+        test_square = Square(SquareLabels::H8 as usize);
         assert_eq!(64, test_square.0);
     }
 }
