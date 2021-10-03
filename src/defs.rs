@@ -1,6 +1,4 @@
 //! Contains definitions needed across the crate.
-use crate::piece;
-use crate::state;
 
 /// Labels for the Sides two-dimensional array in [`Position`]
 pub struct Sides;
@@ -31,6 +29,20 @@ impl BitPieces {
     pub const BISHOP: u8 = 0b00100000;
     pub const PAWN: u8 = 0b01000000;
     pub const BLACK: u8 = 0b10000000;
+}
+
+pub const ROW: u8 = 8;
+pub struct BB;
+impl BB {
+    pub const PIECE: u64 = 0b1;
+    pub const ROOKS: u64 = (Self::PIECE << 7) | Self::PIECE;
+    pub const FULL_ROW: u64 = 0b11111111;
+    pub const WHITE_PIECES: u64 = Self::FULL_ROW << 8 | Self::FULL_ROW;
+    // Push the pieces to the last ranks
+    pub const BLACK_PIECES: u64 = Self::WHITE_PIECES << ROW * 4;
+    pub const ALL_PIECES: u64 = Self::WHITE_PIECES | Self::BLACK_PIECES;
+    pub const WHITE_PAWNS: u64 = Self::FULL_ROW << ROW;
+    pub const BLACK_PAWNS: u64 = Self::WHITE_PAWNS << ROW * 4;
 }
 
 /// Provides labels for the [`CastlingRights`]

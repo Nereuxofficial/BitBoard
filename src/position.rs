@@ -1,4 +1,5 @@
 use crate::bitboard::BitBoard;
+use crate::defs::BB;
 use crate::piece::Piece;
 use crate::state::State;
 use crate::Square;
@@ -32,6 +33,12 @@ impl Position {
         {
             return None;
         }
+        todo!()
+    }
+}
+
+impl Default for Position {
+    fn default() -> Self {
         todo!()
     }
 }

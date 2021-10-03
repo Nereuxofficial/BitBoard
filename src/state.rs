@@ -13,10 +13,21 @@ pub struct State {
 impl State {
     pub fn empty() -> Self {
         Self {
-            castling_rights: CastlingRights::all(),
+            castling_rights: CastlingRights::empty(),
             en_passant_square: None,
             half_move_counter: 0,
             stm: Sides::WHITE,
+        }
+    }
+}
+
+impl Default for State {
+    fn default() -> Self {
+        Self {
+            castling_rights: CastlingRights::all(),
+            en_passant_square: None,
+            half_move_counter: 0,
+            stm: 0,
         }
     }
 }
@@ -35,6 +46,12 @@ impl CastlingRights {
         Self(Castling::NO_CASTLING)
     }
     fn all() -> Self {
+        Self::default()
+    }
+}
+
+impl Default for CastlingRights {
+    fn default() -> Self {
         Self(Castling::ANY_CASTLING)
     }
 }
