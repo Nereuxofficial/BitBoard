@@ -7,7 +7,7 @@ pub struct State {
     castling_rights: CastlingRights,
     en_passant_square: Option<Square>,
     half_move_counter: u8,
-    stm: usize,
+    stm: Sides,
 }
 
 impl State {
@@ -16,7 +16,7 @@ impl State {
             castling_rights: CastlingRights::empty(),
             en_passant_square: None,
             half_move_counter: 0,
-            stm: Sides::WHITE,
+            stm: Sides::White,
         }
     }
 }
@@ -27,7 +27,7 @@ impl Default for State {
             castling_rights: CastlingRights::all(),
             en_passant_square: None,
             half_move_counter: 0,
-            stm: 0,
+            stm: Sides::White,
         }
     }
 }

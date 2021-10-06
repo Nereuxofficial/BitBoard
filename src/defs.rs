@@ -1,16 +1,16 @@
 //! Contains definitions needed across the crate.
 
-/// Labels for the Sides two-dimensional array in [`Position`]
-pub struct Sides;
-impl Sides {
-    pub const WHITE: usize = 0;
-    pub const BLACK: usize = 1;
+#[repr(usize)]
+#[derive(Debug, Clone, Hash, Eq, PartialEq)]
+pub enum Sides {
+    White,
+    Black,
 }
 impl Sides {
-    pub fn opposite(side: usize) -> usize {
-        match side {
-            Self::WHITE => Self::BLACK,
-            _ => Self::WHITE,
+    pub fn opposite(&self) -> Self {
+        match self {
+            Sides::White => Sides::Black,
+            Sides::Black => Sides::White,
         }
     }
 }
