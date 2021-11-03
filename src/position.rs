@@ -1,5 +1,4 @@
 use crate::bitboard::BitBoard;
-use crate::defs::BB;
 use crate::piece::Piece;
 use crate::state::State;
 use crate::Square;
